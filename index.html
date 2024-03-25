@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema General Servicios Especiales</title>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="./assets/img/icons/llave.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!-- <link rel="stylesheet" href="./assets/css/lib/bootstrap.min.css" /> -->
+
+  <script type="module" src="./assets/js/acciones.js" defer></script>
+  <!-- <script type="module" src="./assets/js/modulos.js" defer></script> -->
+  <script type="text/javascript" src="./assets/js/lib/jquery3-6-0.js"></script>
+  <script type="text/javascript" src="./assets/js/lib/sweetalert2.all.min.js"></script>
+  <!-- <script type="text/javascript" src="./assets/js/lib/bootstrap.bundle.min.js"></script> -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script> -->
+
+</head>
+
+<body>
+    
+  <div id='center' class="main center">
+    <div class="mainInner">
+      <header id="mainimage">
+        <div>
+          <h1>SISTEMA GENERAL SERVICIOS ESPECIALES</h1>
+          <button id="btnmostrarmas">Estatus de las campañas</button>
+        </div>
+      </header>
+
+      <div id="secciones">
+        <div class="btn-seccion" id="serviciosbtn">
+          <header>
+            <div><svg width='5.5rem' height='5.5rem' viewBox='0 0 24 24' version='1.1'
+                xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                <g id='页面-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+                  <g id='Development' transform='translate(-96.000000, 0.000000)' fill-rule='nonzero'>
+                    <g id='web_line' transform='translate(96.000000, 0.000000)'>
+                      <path
+                        d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z'
+                        id='MingCute' fill-rule='nonzero'></path>
+                      <path
+                        d='M19,4 C20.1046,4 21,4.89543 21,6 L21,18 C21,19.1046 20.1046,20 19,20 L5,20 C3.89543,20 3,19.1046 3,18 L3,6 C3,4.89543 3.89543,4 5,4 L19,4 Z M19,12 L5,12 L5,18 L19,18 L19,12 Z M19,6 L5,6 L5,10 L19,10 L19,6 Z M7,7 C7.55228,7 8,7.44772 8,8 C8,8.55228 7.55228,9 7,9 C6.44772,9 6,8.55228 6,8 C6,7.44772 6.44772,7 7,7 Z M10,7 C10.5523,7 11,7.44772 11,8 C11,8.55228 10.5523,9 10,9 C9.44772,9 9,8.55228 9,8 C9,7.44772 9.44772,7 10,7 Z M13,7 C13.5523,7 14,7.44772 14,8 C14,8.55228 13.5523,9 13,9 C12.4477,9 12,8.55228 12,8 C12,7.44772 12.4477,7 13,7 Z'
+                        id='形状' fill='currentColor'></path>
+                    </g>
+                  </g>
+                </g>
+              </svg></div>
+          </header>
+          <h2>Servicios</h2>
+        </div>
+        <div class="btn-seccion" id="monitoresbtn">
+          <header>
+            <div><svg width='5.5rem' height='5.5rem' viewBox='0 0 24 24' version='1.1'
+                xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                <g id='页面-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+                  <g id='Development' transform='translate(-864.000000, 0.000000)' fill-rule='nonzero'>
+                    <g id='performance_line' transform='translate(864.000000, 0.000000)'>
+                      <path
+                        d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z'
+                        id='MingCute' fill-rule='nonzero'></path>
+                      <path
+                        d='M19,3 C20.1046,3 21,3.89543 21,5 L21,19 C21,20.1046 20.1046,21 19,21 L5,21 C3.89543,21 3,20.1046 3,19 L3,5 C3,3.89543 3.89543,3 5,3 L19,3 Z M19,5 L5,5 L5,19 L19,19 L19,5 Z M12.0371,7.72855 C12.3082739,6.86097522 13.4777299,6.77813919 13.8878385,7.54487333 L13.9389,7.6547 L15.677,12 L17,12 C17.5523,12 18,12.4477 18,13 C18,13.51285 17.613973,13.9355092 17.1166239,13.9932725 L17,14 L15.0068,14 C14.6351,14 14.297096,13.796366 14.1213836,13.4760677 L14.069,13.3651 L13.1158,10.9821 L11.4619,16.2746 C11.2030273,17.1027636 10.1072568,17.2277874 9.65460915,16.5302559 L9.59448,16.425 L8.38197,14 L7,14 C6.44772,14 6,13.5523 6,13 C6,12.48715 6.38604429,12.0644908 6.88337975,12.0067275 L7,12 L8.99382,12 C9.33388222,12 9.64798889,12.1707457 9.83374702,12.4490272 L9.89719,12.5583 L10.2853,13.3345 L12.0371,7.72855 Z'
+                        id='形状' fill='currentColor'></path>
+                    </g>
+                  </g>
+                </g>
+              </svg></div>
+          </header>
+          <h2>Monitor</h2>
+        </div>
+        
+        <div class="btn-seccion" id="logsbtn">
+          <header>
+            <div>
+              <svg width='5.5rem' height='5.5rem' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg'
+                xmlns:xlink='http://www.w3.org/1999/xlink'>
+                <g id='页面-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+                  <g id='Development' transform='translate(-480.000000, 0.000000)'>
+                    <g id='directory_line' transform='translate(480.000000, 0.000000)'>
+                      <path
+                        d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z'
+                        id='MingCute' fill-rule='nonzero'></path>
+                      <path
+                        d='M6,3 C7.65685,3 9,4.34315 9,6 C9,7.30622 8.16519,8.41746 7,8.82929 L7,11 L15.1707,11 C15.5825,9.83481 16.6938,9 18,9 C19.6569,9 21,10.3431 21,12 C21,13.6569 19.6569,15 18,15 C16.6938,15 15.5825,14.1652 15.1707,13 L7,13 L7,17 C7,17.5523 7.44772,18 8,18 L15.1707,18 C15.5825,16.8348 16.6938,16 18,16 C19.6569,16 21,17.3431 21,19 C21,20.6569 19.6569,22 18,22 C16.6938,22 15.5825,21.1652 15.1707,20 L8,20 C6.34315,20 5,18.6569 5,17 L5,8.82929 C3.83481,8.41746 3,7.30622 3,6 C3,4.34315 4.34315,3 6,3 Z M18,18 C17.4477,18 17,18.4477 17,19 C17,19.5523 17.4477,20 18,20 C18.5523,20 19,19.5523 19,19 C19,18.4477 18.5523,18 18,18 Z M18,11 C17.4477,11 17,11.4477 17,12 C17,12.5523 17.4477,13 18,13 C18.5523,13 19,12.5523 19,12 C19,11.4477 18.5523,11 18,11 Z M6,5 C5.44772,5 5,5.44772 5,6 C5,6.55228 5.44772,7 6,7 C6.55228,7 7,6.55228 7,6 C7,5.44772 6.55228,5 6,5 Z'
+                        id='形状' fill='currentColor'></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </header>
+          <h2>Otras Cosas</h2>
+        </div>
+        <!-- <div class="btn-seccion" id="logsbtn">
+          <header>
+            <div>
+              <svg xmlns='http://www.w3.org/2000/svg' width='5.5rem' height='5.5rem' viewBox='0 0 24 24' viewBox="0 0 24 24">
+                <g id="monitor_line" fill='none' fill-rule='evenodd'>
+                  <path d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5935,23.2578 L12.5819,23.2595 L12.5109,23.295 L12.4919,23.2987 L12.4767,23.295 L12.4057,23.2595 C12.3958,23.2564 12.387,23.259 12.3821,23.2649 L12.378,23.2758 L12.3609,23.7031 L12.3659,23.7235 L12.3769,23.7357 L12.4805,23.8097 L12.4953,23.8136 L12.5071,23.8097 L12.6107,23.7357 L12.6233,23.7197 L12.6267,23.7031 L12.6096,23.2758 C12.6076,23.2657 12.601,23.2593 12.5935,23.2578 Z M12.8584,23.1453 L12.8445,23.1473 L12.6598,23.2397 L12.6499,23.2499 L12.6472,23.2611 L12.6651,23.6906 L12.6699,23.7034 L12.6784,23.7105 L12.8793,23.8032 C12.8914,23.8069 12.9022,23.803 12.9078,23.7952 L12.9118,23.7812 L12.8777,23.1665 C12.8753,23.1546 12.8674,23.147 12.8584,23.1453 Z M12.143,23.1473 C12.1332,23.1424 12.1222,23.1453 12.1156,23.1526 L12.1099,23.1665 L12.0758,23.7812 C12.0751,23.7927 12.0828,23.8019 12.0926,23.8046 L12.1083,23.8032 L12.3092,23.7105 L12.3186,23.7024 L12.3225,23.6906 L12.3404,23.2611 L12.3372,23.2485 L12.3278,23.2397 L12.143,23.1473 Z'/>
+                  <path fill='currentcolor' d='M19.6593,4.21569 C20.8681,4.02198 22,4.9444 22,6.19972 L22,15.8004 C22,17.0558 20.8681,17.9782 19.6593,17.7845 C17.4127,17.4244 15.2038,17.2207 13,17.1734 L13,18.5354 C13.7131,18.5837 14.3796,18.6746 14.9144,18.7637 C15.3564,18.8374 15.7977,18.9214 16.2331,19.0276 C16.7605,19.1578 17.1025,19.7131 16.9701,20.2426 C16.8362,20.7783 16.2936,21.104 15.7579,20.9703 C15.3709,20.8758 14.9785,20.802 14.5856,20.7365 C13.865,20.6164 12.9244,20.5001 12,20.5001 C11.0756,20.5001 10.135,20.6164 9.4144,20.7365 C9.02161,20.8019 8.62926,20.8747 8.24254,20.9702 C7.70684,21.104 7.16378,20.7783 7.02986,20.2426 C6.89591,19.7068 7.22167,19.1639 7.75746,19.0299 C8.19559,18.9209 8.6404,18.8379 9.0856,18.7637 C9.62036,18.6746 10.2869,18.5837 11,18.5354 L11,17.1734 C8.79615,17.2207 6.58733,17.4244 4.34065,17.7845 C3.1319,17.9782 2,17.0558 2,15.8004 L2,6.19972 C2,4.9444 3.13191,4.02198 4.34065,4.21569 C9.5138,5.04477 14.4862,5.04477 19.6593,4.21569 Z M19.9832,6.18999359 C19.9832,6.18999359 19.9796,6.18999359 19.9758,6.19049 C14.593,7.05317 9.40696,7.05317 4.02416,6.19049 C4.02042,6.18999359 4.01683,6.18999359 4.01683,6.18999359 L4.01288,6.19068 C4.00996,6.19152 4.00631,6.19331 4.00297,6.19611 L4,6.19906 L4,15.8004 L4.00297,15.8041 C4.00631,15.8069 4.00996,15.8086 4.01288,15.8095 L4.01683,15.8102063 C4.01683,15.8102063 4.02042,15.8102063 4.02416,15.8097 C9.40696,14.947 14.593,14.947 19.9758,15.8097 C19.9796,15.8102063 19.9832,15.8102063 19.9832,15.8102063 L19.9848,15.81 L19.9871,15.8095 C19.99,15.8086 19.9937,15.8069 19.997,15.8041 L20,15.8011 L20,6.19972 L19.997,6.19611 C19.9937,6.19331 19.99,6.19152 19.9871,6.19068 L19.9832,6.18999359 Z'/>
+                </g></svg>
+            </div>
+          </header>
+          <h2>Otras Campañas</h2>
+        </div> -->
+      </div>
+      <div>
+        <!-- <img src="./assets/img/icons/keyboard_double_arrow_down_FILL0_wght400_GRAD0_opsz48.png" id="flechas"> -->
+        <svg id="flechas" width='45rem' height='45rem' viewBox='0 0 24 24' version='1.1'
+          xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+          <g id='Icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+            <g id='Arrow' transform='translate(-624.000000, -194.000000)'>
+              <g id='arrows_down_line' transform='translate(624.000000, 194.000000)'>
+                <path
+                  d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5935,23.2578 L12.5819,23.2595 L12.5109,23.295 L12.4919,23.2987 L12.4767,23.295 L12.4057,23.2595 C12.3958,23.2564 12.387,23.259 12.3821,23.2649 L12.378,23.2758 L12.3609,23.7031 L12.3659,23.7235 L12.3769,23.7357 L12.4805,23.8097 L12.4953,23.8136 L12.5071,23.8097 L12.6107,23.7357 L12.6233,23.7197 L12.6267,23.7031 L12.6096,23.2758 C12.6076,23.2657 12.601,23.2593 12.5935,23.2578 Z M12.8584,23.1453 L12.8445,23.1473 L12.6598,23.2397 L12.6499,23.2499 L12.6472,23.2611 L12.6651,23.6906 L12.6699,23.7034 L12.6784,23.7105 L12.8793,23.8032 C12.8914,23.8069 12.9022,23.803 12.9078,23.7952 L12.9118,23.7812 L12.8777,23.1665 C12.8753,23.1546 12.8674,23.147 12.8584,23.1453 Z M12.143,23.1473 C12.1332,23.1424 12.1222,23.1453 12.1156,23.1526 L12.1099,23.1665 L12.0758,23.7812 C12.0751,23.7927 12.0828,23.8019 12.0926,23.8046 L12.1083,23.8032 L12.3092,23.7105 L12.3186,23.7024 L12.3225,23.6906 L12.3404,23.2611 L12.3372,23.2485 L12.3278,23.2397 L12.143,23.1473 Z'
+                  id='MingCute' fill-rule='nonzero'></path>
+                <path
+                  d='M6.29289,6.29289 C6.68342,5.90237 7.31658,5.90237 7.70711,6.29289 L12,10.5858 L16.2929,6.29289 C16.6834,5.90237 17.3166,5.90237 17.7071,6.29289 C18.0976,6.68342 18.0976,7.31658 17.7071,7.70711 L12.7071,12.7071 C12.5196,12.8946 12.2652,13 12,13 C11.7348,13 11.4804,12.8946 11.2929,12.7071 L6.29289,7.70711 C5.90237,7.31658 5.90237,6.68342 6.29289,6.29289 Z M6.29289,12.2929 C6.68342,11.9024 7.31658,11.9024 7.70711,12.2929 L12,16.5858 L16.2929,12.2929 C16.6834,11.9024 17.3166,11.9024 17.7071,12.2929 C18.0976,12.6834 18.0976,13.3166 17.7071,13.7071 L12.7071,18.7071 C12.5196,18.8946 12.2652,19 12,19 C11.7348,19 11.4804,18.8946 11.2929,18.7071 L6.29289,13.7071 C5.90237,13.3166 5.90237,12.6834 6.29289,12.2929 Z'
+                  id='形状' fill='currentColor'></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="separador">
+
+  </div>
+  <div class="container">
+    <div class="selected" id="div1">
+      <header id="titulodiv">Servicios</header>
+      <div class="container-child">
+        <div class="info">
+          <div class="services">
+            <header id="img-ces">
+              <div>
+                <h4>CAMPAÑAS ESPECIALES</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>Son las campañas que importan</p>
+            <button class="btns-genycierr2" id="btn_gen_ces">Generacion</button>
+            <button class="btns-genycierr2" id="btn_cierre_ces">Cierre</button>
+          </div>
+          <div class="services">
+            <header id="img-medallia">
+              <div>
+                <h4>MEDALLIA</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>¿como es que sigue viva?</p>
+            <button class="btns-genycierr2" id="btn_gen_medallia">Generacion</button>
+            <button class="btns-genycierr2" id="btn_cierre_medallia">Cierre</button>
+          </div>
+          <div class="services">
+            <header id="img-coppelpay">
+              <div>
+                <h4>COPPEL PAY</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>Campaña que molesta a Empresas</p>
+            <button class="btns-genycierr2" id="btn_gen_coppelpay">Generacion</button>
+            <button class="btns-genycierr2" id="btn_cierre_coppelpay">Cierre</button>
+          </div>
+          <div class="services">
+            <header id="img-lym">
+              <div>
+                <h4>ACTUALIZACION DE DOMICILIOS LyM</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>Esta teniendo su segundo aire (creo)</p>
+            <button class="btns-genycierr2" id="Regiones_LyM">Regiones</button>
+            <button class="btns-genycierr2" id="Generacion_LyM">Generacion</button>
+            <button class="btns-genycierr2" id="Cierre_LyM">Cierre</button>
+          </div>
+          <div class="services">
+            <header id="img-erroneos">
+              <div>
+                <h4>DATOS ERRONEOS</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>Campaña para gente dislexica</p>
+            <button class="btns-genycierr2" id="generacion_DE">Generacion</button>
+            <button class="btns-genycierr2" id="cierre_DE">Cierre</button>
+          </div>
+          <div class="services">
+            <header id="img-referencias">
+              <div>
+                <h4>REFERENCIAS INCOMPLETAS</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>La proxima notificaciones proactivas</p>
+            <button class="btns-genycierr2" id="btn_gen_referencias">Generacion</button>
+            <button class="btns-genycierr2" id="btn_cierre_referencias">Cierre</button>
+          </div>
+          <div class="services" id="noti-pro">
+            <header id="img-noti">
+              <div>
+                <h4>NOTIFICACIONES PROACTIVAS</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <div>
+              <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox="0 0 24 24">
+                <g id="alert_line" fill='none' fill-rule='nonzero'>
+                  <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='red' d='m13.299 3.148 8.634 14.954a1.5 1.5 0 0 1-1.299 2.25H3.366a1.5 1.5 0 0 1-1.299-2.25l8.634-14.954c.577-1 2.02-1 2.598 0ZM12 4.898 4.232 18.352h15.536L12 4.898ZM12 15a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm0-7a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z'/></g></svg><br>
+                  <p>FUERA DE SERVICIO</p>
+            </div>
+          </div>
+          <div class="services">
+            <header id="img-argentina">
+              <div>
+                <h4>SOLICITUD DE CREDITO ARGENTINA</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>Tenemos el cierre y... ¿ya?</p>
+            <button class="btns-genycierr2" id="cierre_argentina">Cierre</button>
+          </div>
+          <div class="services">
+            <header id="img-conoff">
+              <div>
+                <h4>CONFIRMACION OFF</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>La campaña del BOT</p>
+            <button class="btns-genycierr2" id="cierre_off">Cierre</button>
+          </div>
+          <div class="services">
+            <header id="img-conon">
+              <div>
+                <h4>CONFIRMACION ON</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>Tenemos un cierre 🤖</p>
+            <!-- <button class="btns-genycierr2" id="mostrar">Mostrar</button> -->
+          </div>
+          <div class="services">
+            <header id="img-default">
+              <div>
+                <h4>CAMPAÑAS EN FORMATO DE CAMPAÑA UNICA</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>Campañas que antes estaban aqui y luego se fueron y luego volvieron</p>
+            <!-- <button class="btns-genycierr2" id="mostrar">Mostrar</button> -->
+          </div>
+          <div class="services">
+            <header id="img-supervision">
+              <div>
+                <h4>SUPERVISION TELEFONICA ARGENTINA</h4>
+              </div>
+            </header>
+            <!-- <br> -->
+            <p>¿Como llegan los movimientos ahí?</p>
+            <button class="btns-genycierr2" id="cierre_suparg">Cierre</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="separador">
+
+    </div>
+    <div class="selected" id="div2">
+      <header id="titulodiv">Monitor de campañas</header>
+      <div class="container-child">
+        <!-- Aqui quiero que vaya algo mamalon -->
+        <!-- como tablas, y graficas de las campañas, tenia planeado mostrar las campañas que se
+          trabajaron en el dia, tal vez suene buena idea
+          creo que meterle que cambie por campaña creo que seria algo dificil xD -->
+        <!-- Lo averiguaremos -->
+        <div class="info">
+
+          <div class="tablas">
+            <!-- <div id="table"> -->
+            <header id="img-ces">
+              <div>
+                <h4>CAMPAÑAS ESPECIALES</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <select class="campo_select_ces" id="campains_monitor_ces">
+              <option value="ABONOARGENTINA">Abono Argentina</option>
+              <option value="CREDITOAUTOMOTRIZ">Credito Automotriz</option>
+              <option value="DISTRIBUCIONARGENTINA">Distibución Argentina</option>
+              <!-- <option value="PRESTAMOALINEADO">Prestamo Alineado</option> -->
+              <option value="TRASPASOS">Traspasos</option>
+              <!-- <option value="CLUB_VIAL">Club Proteccion Vial</option> -->
+              <!-- <option value="CLUB_MOTOS">Club Proteccion Motos</option> -->
+              <!-- <option value="CLUB_SALUD">Club Proteccion Salud</option> -->
+              <option value="CLUBPROTECCIONFAMILIAR">Club Proteccion Familiar</option>
+              <option value="ESTADODECUENTAAFORE">Estado De Cuenta Afore</option>
+              <!-- <option value="LIGUEDECREDITO">Ligue De Credito</option> -->
+              </select>
+              <input class="campo_fecha" id="fecha_monitor_ces" type="date">
+              <button class="btn_refresh" id="btn_search_ces">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_ces"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_ces"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_ces"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_ces_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_ces_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_ces_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+            <!-- </div> -->
+          </div>
+
+          <div class="tablas">
+            <header id="img-medallia">
+              <div>
+                <h4>MEDALLIA</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_medallia" type="date">
+              <button class="btn_refresh" id="btn_monitor_medallia">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_medallia"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_medallia"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_medallia"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_medallia_hist"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_medallia_hist"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_medallia_hist"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-coppelpay">
+              <div>
+                <h4>COPPEL PAY</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_coppel_pay" type="date">
+              <button class="btn_refresh" id="btn_monitor_coppel_pay">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_coppelpay"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_coppelpay"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_coppelpay"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_coppelpay_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_coppelpay_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_coppelpay_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-lym">
+              <div>
+                <h4>ACTUALIZACION DE DOMICILIOS LyM</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_lym" type="date">
+              <button class="btn_refresh" id="btn_monitor_lym">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_lym"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_lym"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_lym"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_lym_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_lym_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_lym_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-erroneos">
+              <div>
+                <h4>DATOS ERRONEOS</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_datos_erroneos" type="date">
+              <button class="btn_refresh" id="btn_monitor_datos_erroneos">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_datoserroneos"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_datoserroneos"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_datoserroneos"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_datoserroneos_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_datoserroneos_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_datoserroneos_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-referencias">
+              <div>
+                <h4>REFERENCIAS INCOMPLETAS</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_referenciasincompletas" type="date">
+              <button class="btn_refresh" id="btn_monitor_referenciasincompletas">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_referenciasincompletas"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_referenciasincompletas"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_referenciasincompletas"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_referenciasincompletas_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_referenciasincompletas_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_referenciasincompletas_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-noti">
+              <div>
+                <h4>NOTIFICACIONES PROACTIVAS</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="" type="date">
+              <button class="btn_refresh" id="">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child" style="align-items: center; justify-content: center;">
+                <!-- <div class="info"> -->
+    <div>
+      <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox="0 0 24 24">
+        <g id="alert_line" fill='none' fill-rule='nonzero'>
+          <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+          <path fill='red' d='m13.299 3.148 8.634 14.954a1.5 1.5 0 0 1-1.299 2.25H3.366a1.5 1.5 0 0 1-1.299-2.25l8.634-14.954c.577-1 2.02-1 2.598 0ZM12 4.898 4.232 18.352h15.536L12 4.898ZM12 15a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm0-7a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z'/></g></svg><br>
+          <p>FUERA DE SERVICIO</p>
+    </div>
+
+                  <!-- <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> -->
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-argentina">
+              <div>
+                <h4>SOLICITUD DE CREDITO ARGENTINA</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_solcreditoargentina" type="date">
+              <button class="btn_refresh" id="btn_monitor_solcreditoargentina">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_solcreditoargentina"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_solcreditoargentina"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_solcreditoargentina"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_solcreditoargentina_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_solcreditoargentina_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_solcreditoargentina_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-conoff">
+              <div>
+                <h4>CONFIRMACION OFF</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_confirmacion_off" type="date">
+              <button class="btn_refresh" id="btn_monitor_confirmacion_off">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_confirmacion_off"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_confirmacion_off"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_confirmacion_off"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_confirmacion_off_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_confirmacion_off_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_confirmacion_off_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-conon">
+              <div>
+                <h4 style="color: black;">CONFIRMACION ON</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="fecha_monitor_conON" type="date">
+              <button class="btn_refresh" id="btn_monitor_conON">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_conON"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_conON"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_conON"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_conON_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_conON_historico"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_conON_historico"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-default">
+              <div>
+                <h4>CAMPAÑAS EN FORMATO DE CAMPAÑA UNICA</h4>
+                <!-- <button class="btn_" id="zoom_IDM"> -->
+                  
+                <!-- </button> -->
+              </div>
+            </header>
+            <div class="fecha" >
+              <select class="campo_select_ces" id="monitor_campain_campanaunica">
+                <!-- <option value="ABONO_ARGENTINA">Abono Argentina</option> -->
+                <option value="CP_CUE_OPERACIONARGENTINA_20231009">Operación Argentina</option>
+                <!-- <option value="DISTRIBUCION_ARGENTINA">Distibución Argentina</option> -->
+                <option value="CP_CUE_PRESTAMOALINEADO_20240105">Prestamo Alineado</option>
+                <!-- <option value="TRASPASOS">Traspasos</option> -->
+                <option value="CP_CUE_CLUB_VIAL_20230814">Club Proteccion Vial</option>
+                <option value="CP_CUE_CLUB_MOTOS_20230814">Club Proteccion Motos</option>
+                <option value="CP_CUE_CLUB_SALUD_20230814">Club Proteccion Salud</option>
+                <!-- <option value="CLUB_FAMILIAR">Club Proteccion Familiar</option> -->
+                <!-- <option value="ESTADO_DE_CUENTA_AFORE">Estado De Cuenta Afore</option> -->
+                <option value="CP_CUE_LIGUEDECREDITO_20220216">Ligue De Credito</option>
+                <option value="CP_CUE_EVALUACIONCANALESALTERNOS_20220630">Evaluacion Canales Alternos</option>
+                </select>
+              <input class="campo_fecha" id="fecha_monitor_campanaunica" type="date">
+              <button class="btn_refresh" id="btn_monitor_campanaunica">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+    
+                  <div>
+                    <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_campanaunica"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_campanaunica"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_campanaunica"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+    
+                  <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_campanaunica_historica"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_campanaunica_historica"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_campanaunica_historica"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24" id="maxi_idm">
+                    <g id="fullscreen_2_line" fill='none' fill-rule='nonzero'>
+                      <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                    <path fill='currentcolor' d='M9.793 12.793a1 1 0 0 1 1.497 1.32l-.083.094L6.414 19H9a1 1 0 0 1 .117 1.993L9 21H4a1 1 0 0 1-.993-.883L3 20v-5a1 1 0 0 1 1.993-.117L5 15v2.586l4.793-4.793ZM20 3a1 1 0 0 1 .993.883L21 4v5a1 1 0 0 1-1.993.117L19 9V6.414l-4.793 4.793a1 1 0 0 1-1.497-1.32l.083-.094L17.586 5H15a1 1 0 0 1-.117-1.993L15 3h5Z'/>
+                  </g>
+                </svg> -->
+                <!-- </div> -->
+              </div>
+          </div>
+          <div class="tablas">
+            <header id="img-supervision">
+              <div>
+                <h4>SUPERVISION TELEFONICA ARGENTINA</h4>
+              </div>
+            </header>
+            <div class="fecha" >
+              <input class="campo_fecha" id="" type="date">
+              <button class="btn_refresh" id="">
+                <svg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox="0 0 24 24">
+                  <g id="search_2_line" fill='none' fill-rule='evenodd'>
+                    <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+                  <path fill='currentcolor' d='M5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Zm5-7a7 7 0 1 0 4.192 12.606l5.1 5.101a1 1 0 0 0 1.415-1.414l-5.1-5.1A7 7 0 0 0 10 3Z'/>
+                </g>
+              </svg>
+              </button>
+              </div>
+              <div class="container-child">
+                <!-- <div class="info"> -->
+                  <!-- <div> -->
+                    <div>
+                      <img src="./assets/img/unnamed.png" alt="" id="tom-image">
+                      <!-- <img src="./assets/img/Patricio-removebg-preview.png" alt="" id="tom-image"> -->
+                    </div>
+                    <!-- <table class="table">
+                      <caption>Productivo del Dia</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_ces"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_ces"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_ces"></td>
+                        </tr>
+                      </tbody>
+                    </table> -->
+                  <!-- </div> -->
+    
+                  <!-- <div>
+                    <table class="table">
+                      <caption>Historico</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Registros</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Carga</td>
+                          <td class="resultado_carga" id="carga_ces"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Directorio</td>
+                          <td class="resultado_directorio" id="directrio_ces"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td >Movimientos</td>
+                          <td class="resultado_movtos" id="movimientos_ces"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> -->
+                <!-- </div> -->
+              </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="separador">
+      
+    </div>
+    <div class="selected" id="div3">
+      <header id="titulodiv">Campañas Trabajadas</header>
+      <p> ESTO TODAVIA ES UN SITIO EN CONSTRUCCION👷🏼‍♂️ EL NOMBRE DEL ARCHIVO ESTA BIEN, PERO EL COLOR SOLO ES UNA REFERENCIA A LO QUE VENDRÁ DESPUES, QUE SERA PARA MARCAR LA CAMPAÑA TRABAJADA </p>
+      <div class="container">
+        </div>
+      </div>
+
+    </div>
+    <div class="separador">
+      
+    </div>
+  </div>
+  <nav class="navbar" id="navbar">
+    <!-- <img id="logo" src="./assets/img/logo-white.png" alt=""> -->
+    <img id="logo" src="./assets/img/Logo Coppel3-01.png" alt="">
+    <img id="logo-white" src="./assets/img/logo-white.png" alt="">
+    <div class="botones">
+      <button id="toggleBtn">
+        <?xml version='1.0' encoding='UTF-8'?><svg id="luna" width='24px' height='24px' viewBox='0 0 24 24' version='1.1'
+          xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+          <g id='页面-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+            <g id='Weather' transform='translate(-96.000000, 0.000000)'>
+              <g id='moon_line' transform='translate(96.000000, 0.000000)'>
+                <path
+                  d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z'
+                  id='MingCute' fill-rule='nonzero'></path>
+                <path
+                  d='M13.574,3.13729 C12.7837,2.99779 12.1416,3.79855 12.4769,4.54557 C12.8127,5.29352 13,6.12352 13,6.99996 C13,10.3137 10.3137,13 7,13 C6.12356,13 5.29356,12.8127 4.54561,12.4769 C3.79866,12.1416 2.99783,12.7836 3.13734,13.5739 C3.8823,17.7941 7.56575,21 12,21 C16.9706,21 21,16.9705 21,12 C21,7.5657 17.7942,3.88225 13.574,3.13729 Z M14.8809,5.61808 C17.3098,6.71634 19,9.16146 19,12 C19,15.8659 15.866,19 12,19 C9.1615,19 6.71639,17.3098 5.61813,14.8809 C6.06734,14.9592 6.52913,15 7,15 C11.4183,15 15,11.4182 15,6.99996 C15,6.52909 14.9592,6.0673 14.8809,5.61808 Z'
+                  id='形状' fill='currentColor'></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <svg id="sol" xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox="0 0 24 24">
+          <g id="sun_line" fill='none' fill-rule='nonzero'>
+            <path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/>
+            <path fill='currentcolor' d='M12 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm6.364-2.05.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 0 1 1.414-1.414Zm-12.728 0a1 1 0 0 1 1.497 1.32l-.083.094-.707.707a1 1 0 0 1-1.497-1.32l.083-.094.707-.707ZM12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12Zm0 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-8 3a1 1 0 0 1 .117 1.993L4 13H3a1 1 0 0 1-.117-1.993L3 11h1Zm17 0a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2h1ZM4.929 4.929a1 1 0 0 1 1.32-.083l.094.083.707.707a1 1 0 0 1-1.32 1.497l-.094-.083-.707-.707a1 1 0 0 1 0-1.414Zm14.142 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0ZM12 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Z'/>
+        </g></svg>
+      </button>
+    </div>
+  </nav>
+  <button class="floating-btn"><svg id="flechaup" width='2rem' height='3rem' viewBox='0 0 24 24' version='1.1'
+      xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+      <g id='Icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+        <g id='Arrow' transform='translate(-768.000000, -194.000000)'>
+          <g id='arrows_up_line' transform='translate(768.000000, 194.000000)'>
+            <path
+              d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5935,23.2578 L12.5819,23.2595 L12.5109,23.295 L12.4919,23.2987 L12.4767,23.295 L12.4057,23.2595 C12.3958,23.2564 12.387,23.259 12.3821,23.2649 L12.378,23.2758 L12.3609,23.7031 L12.3659,23.7235 L12.3769,23.7357 L12.4805,23.8097 L12.4953,23.8136 L12.5071,23.8097 L12.6107,23.7357 L12.6233,23.7197 L12.6267,23.7031 L12.6096,23.2758 C12.6076,23.2657 12.601,23.2593 12.5935,23.2578 Z M12.8584,23.1453 L12.8445,23.1473 L12.6598,23.2397 L12.6499,23.2499 L12.6472,23.2611 L12.6651,23.6906 L12.6699,23.7034 L12.6784,23.7105 L12.8793,23.8032 C12.8914,23.8069 12.9022,23.803 12.9078,23.7952 L12.9118,23.7812 L12.8777,23.1665 C12.8753,23.1546 12.8674,23.147 12.8584,23.1453 Z M12.143,23.1473 C12.1332,23.1424 12.1222,23.1453 12.1156,23.1526 L12.1099,23.1665 L12.0758,23.7812 C12.0751,23.7927 12.0828,23.8019 12.0926,23.8046 L12.1083,23.8032 L12.3092,23.7105 L12.3186,23.7024 L12.3225,23.6906 L12.3404,23.2611 L12.3372,23.2485 L12.3278,23.2397 L12.143,23.1473 Z'
+              id='MingCute' fill-rule='nonzero'></path>
+            <path
+              d='M12,5 C12.2652,5 12.5196,5.10536 12.7071,5.29289 L17.7071,10.2929 C18.0976,10.6834 18.0976,11.3166 17.7071,11.7071 C17.3166,12.0976 16.6834,12.0976 16.2929,11.7071 L12,7.41421 L7.70711,11.7071 C7.31658,12.0976 6.68342,12.0976 6.29289,11.7071 C5.90237,11.3166 5.90237,10.6834 6.29289,10.2929 L11.2929,5.29289 C11.4804,5.10536 11.7348,5 12,5 Z M12,11 C12.2652,11 12.5196,11.1054 12.7071,11.2929 L17.7071,16.2929 C18.0976,16.6834 18.0976,17.3166 17.7071,17.7071 C17.3166,18.0976 16.6834,18.0976 16.2929,17.7071 L12,13.4142 L7.70711,17.7071 C7.31658,18.0976 6.68342,18.0976 6.29289,17.7071 C5.90237,17.3166 5.90237,16.6834 6.29289,16.2929 L11.2929,11.2929 C11.4804,11.1054 11.7348,11 12,11 Z'
+              id='形状' fill='currentColor'></path>
+          </g>
+        </g>
+      </g>
+    </svg></button>
+  <footer class="footer">
+    <span id="copyright" class="copyright">
+      <script>
+        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+      </script>
+    </span>
+    &copy; Coppel todos los derechos reservados
+  </footer>
+  
+</body>
+
+</html>
