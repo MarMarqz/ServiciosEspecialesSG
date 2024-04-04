@@ -90,13 +90,12 @@ function movimientosl($fecha) # Esta vaina ya jala y mejor que el sistema anteri
     $rutaDestinoProductivo = "ssh2.sftp://$sftp88/tmp/Servicios Especiales/";
     $archivorep = 'CL_SCM_ACTUALIZADOMICILIOS_LYM_20231018*_' . $fechaFormateada . '_*.rep';
 
+    $archivoEncontrado = false;
     foreach ($GLOBALS["rutasMovimientosL"] as $ruta)
     {
         foreach (glob($ruta . $archivorep) as $file)
         {
-
-            if (file_exists($file))
-            {
+                $archivoEncontrado = true;
                 $archivoDestino = $rutaDestinoProductivo . basename($file);
                 if (!copy($file, $archivoDestino))
                 {
@@ -126,21 +125,21 @@ function movimientosl($fecha) # Esta vaina ya jala y mejor que el sistema anteri
                     $query84 = $conn84->prepare("SELECT fun_copiado_historico('$fecha')");
                     $query84->execute();
 
-                    
+
                     if (!copy("ssh2.sftp://" . $sftp84 . "/tmp/Servicios Especiales/Movimientos_LyM.csv", "ssh2.sftp://" . $sftp88 . "/tmp/Servicios Especiales/Movimientos_LyM.csv"))
-                        {
-                            
-                            $estado = 1;
-                            $mensaje = 'No se pudo copiar Archivo de movimientos';
-                            
-                            $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
-                            header('Content-Type: application/json');
-                            echo json_encode($endJSON);    
-                            return;
-                        }
-                        ;
-                        #quiero darle permisos pero no lo esta haciendo, que pedo?
-                        $permisos = ssh2_sftp_chmod($sftp88, "/tmp/Servicios Especiales/Movimientos_LyM.csv", 4095);
+                    {
+
+                        $estado = 1;
+                        $mensaje = 'No se pudo copiar Archivo de movimientos';
+
+                        $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
+                        header('Content-Type: application/json');
+                        echo json_encode($endJSON);
+                        return;
+                    }
+                    ;
+                    #quiero darle permisos pero no lo esta haciendo, que pedo?
+                    $permisos = ssh2_sftp_chmod($sftp88, "/tmp/Servicios Especiales/Movimientos_LyM.csv", 4095);
 
                     $query88 = $conn88->prepare("SELECT estado, mensaje FROM fun_cierre_movimientosl_lym('$archivoNombre','$fecha')");
                     $query88->execute();
@@ -152,34 +151,30 @@ function movimientosl($fecha) # Esta vaina ya jala y mejor que el sistema anteri
                     }
                     ;
 
-                    #estan pasando cosas extrañas aqui
-                    // echo "$estado";
                     $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
-                    header('Content-Type: application/json');
-                    echo json_encode($endJSON);
+
+                    // $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
+                    // header('Content-Type: application/json');
+                    // echo json_encode($endJSON);
                     if ($estado != 0)
                     {
-
-
                         $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
                         header('Content-Type: application/json');
                         echo json_encode($endJSON);
                         return;
                     }
                 }
-            }
-            else
-            {
-                $estado = 1;
-                $mensaje = ' No se encontro el archivo rep del dia';
-
-                $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
-                header('Content-Type: application/json');
-                echo json_encode($endJSON);
-                return;
-            }
         }
     }
+
+    if (!$archivoEncontrado) {
+        $estado = 1;
+        $mensaje = ' No se encontro el archivo rep del dia';
+    }
+
+    $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
+    header('Content-Type: application/json');
+    echo json_encode($endJSON);
 }
 
 function respaldarlym($fecha) # Se simplifico un poco mas el flujo de este apartado

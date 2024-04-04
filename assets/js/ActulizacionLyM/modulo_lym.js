@@ -93,10 +93,11 @@ export function movimientosL() {
             case 0:
               accion.ToastSuccess(response.mensaje, 8000);
               accion.BotonSuccess('btn_movimientosl_lym');
+              console.log(response.mensaje);
               spinner(false);
               break;
             default:
-              accion.ToastError(`Error: ${response}`, 10000);
+              accion.ToastError(`Error: ${response.mensaje}`, 10000);
               accion.BotonError('btn_movimientosl_lym');
               console.log(response);
               spinner(false);
@@ -109,6 +110,7 @@ export function movimientosL() {
         );
         spinner(false);
       });
+       
     } else {
       accion.ToastInfo("Rellene todos los campos");
       spinner(false);

@@ -28,21 +28,16 @@ export function copiarmovtos(){
               parametros,
               function (response) {
                 switch (response.estado) {
-                  case 0:
+                  case 1:
                         accion.ToastSuccess(response.mensaje, 8000);
                         accion.BotonSuccess('btn_copiar_movtos_argentina');
                         spinner(false);
                         console.log(response.mensaje);
                     break;
-                  case 2:
-                        accion.ToastWarning(response.mensaje, 8000);
-                        accion.BotonError('btn_copiar_movtos_argentina');
-                        spinner(false);
-                    break;
                   default:
-                    accion.ToastError(`Error: ${response}`, 10000);
+                    accion.ToastError(`Error: ${response.mensaje}`, 10000);
                     spinner(false);
-                    console.log(response);
+                    console.log(response.mensaje);
                 }
               }
             )
@@ -77,7 +72,7 @@ export function respaldardirectorio(){
     spinner(true);
 
     let parametros = {
-      opc: "copymovtos",
+      opc: "CopiarDirectorio",
       fecha: accion.value("fecha_argentina"),
     };
 
@@ -91,17 +86,15 @@ export function respaldardirectorio(){
           parametros,
           function (response) {
             switch (response.estado) {
-              case 0:
+              case 1:
                     accion.ToastSuccess(response.mensaje, 8000);
+                    accion.BotonSuccess('btn_copia_direct_arg');
                     spinner(false);
                     console.log(response.mensaje);
                 break;
-              case 2:
-                    accion.ToastWarning(response.mensaje, 8000);
-                    spinner(false);
-                break;
               default:
                 accion.ToastError(`Error: ${response}`, 10000);
+                accion.BotonError('btn_copia_direct_arg');
                 spinner(false);
                 console.log(response);
             }
@@ -124,65 +117,65 @@ export function respaldardirectorio(){
   Directorio()
 }
 
-export function generarmovtostrab(){
-  function spinner(show) {
-    if (show) {
-      $("#cargando2-solargentina").show();
-      $("#img_movtrab_arg").hide();
-    } else {
-      $("#cargando2-solargentina").hide();
-      $("#img_movtrab_arg").show();
-    }
-  }
-  function MovtosTtrab() {
-    spinner(true);
+// export function generarmovtostrab(){
+//   function spinner(show) {
+//     if (show) {
+//       $("#cargando2-solargentina").show();
+//       $("#img_movtrab_arg").hide();
+//     } else {
+//       $("#cargando2-solargentina").hide();
+//       $("#img_movtrab_arg").show();
+//     }
+//   }
+//   function MovtosTtrab() {
+//     spinner(true);
 
-    let parametros = {
-      opc: "MovtosTtrab",
-      fecha: accion.value("fecha_argentina"),
-    };
+//     let parametros = {
+//       opc: "MovtosTtrab",
+//       fecha: accion.value("fecha_argentina"),
+//     };
 
-    let verficarcampos = Object.values(parametros).every(
-      (value) => value != null && value !== ""
-    );
-      if (verficarcampos) {
-        $.post(
-          "./assets/php/SolCreditoArgentina/funciones_solargentina.php",
-          parametros,
-          function (response) {
-            switch (response.estado) {
-              case 0:
-                    accion.ToastSuccess(response.mensaje, 8000);
-                    spinner(false);
-                    console.log(response.mensaje);
-                break;
-              case 2:
-                    accion.ToastWarning(response.mensaje, 8000);
-                    spinner(false);
-                break;
-              default:
-                accion.ToastError(`Error: ${response}`, 10000);
-                spinner(false);
-                console.log(response);
-            }
-          }
-        )
-          .fail(function (jqXHR, textStatus, errorThrown) {
-            accion.ToastError(
-              `Falló la petición: ${jqXHR.status} ${jqXHR.statusText}`,
-              10000
-            );
-          })
-          .always(function () {
-            spinner(false);
-          });
-      } else {
-        accion.ToastInfo("Rellene todos los campos");
-        spinner(false);
-      }
-  }
-  MovtosTtrab()
-}
+//     let verficarcampos = Object.values(parametros).every(
+//       (value) => value != null && value !== ""
+//     );
+//       if (verficarcampos) {
+//         $.post(
+//           "./assets/php/SolCreditoArgentina/funciones_solargentina.php",
+//           parametros,
+//           function (response) {
+//             switch (response.estado) {
+//               case 0:
+//                     accion.ToastSuccess(response.mensaje, 8000);
+//                     spinner(false);
+//                     console.log(response.mensaje);
+//                 break;
+//               case 2:
+//                     accion.ToastWarning(response.mensaje, 8000);
+//                     spinner(false);
+//                 break;
+//               default:
+//                 accion.ToastError(`Error: ${response}`, 10000);
+//                 spinner(false);
+//                 console.log(response);
+//             }
+//           }
+//         )
+//           .fail(function (jqXHR, textStatus, errorThrown) {
+//             accion.ToastError(
+//               `Falló la petición: ${jqXHR.status} ${jqXHR.statusText}`,
+//               10000
+//             );
+//           })
+//           .always(function () {
+//             spinner(false);
+//           });
+//       } else {
+//         accion.ToastInfo("Rellene todos los campos");
+//         spinner(false);
+//       }
+//   }
+//   MovtosTtrab()
+// }
 
 export function generarcobertura(){
   function spinner(show) {

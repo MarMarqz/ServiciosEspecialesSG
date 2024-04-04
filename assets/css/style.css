@@ -913,6 +913,7 @@ h4 {
     border: 1.5px solid #006fb9;
     color: #006fb9;
     border-radius: 10px;
+    margin-right: 1.5rem;
 }
 
 #toggleBtn:hover {
@@ -1277,6 +1278,9 @@ h4 {
 #cierre_off {color: #d73d09;}
 .dark-mode #cierre_off {color: #00ffe2;}
 #cierre_off:hover { background-color: #d73d09; color: #ffff;}
+
+#btn_campanaunica{color: #63bfb5;}
+#btn_campanaunica:hover{color: #ffff; background-color: #63bfb5;}
 
 #cierre_suparg{color: #775dc0;}
 .dark-mode #cierre_suparg{color: #00ffe2;}

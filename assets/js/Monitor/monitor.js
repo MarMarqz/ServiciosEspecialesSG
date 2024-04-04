@@ -474,7 +474,7 @@ export function monitor_sol_credito_argentina() {
           if (typeof response === "object" || typeof response === "string") {
             if (typeof response === "string") {
               if (!response.startsWith("{")) {
-                console.error("Error al analizar la respuesta JSON:", error);
+                // console.error("Error al analizar la respuesta JSON:", response);
                 Swal.fire({
                   customClass: "swal_width",
                   title: "Ocurrio un error",

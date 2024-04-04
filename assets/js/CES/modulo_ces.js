@@ -43,13 +43,14 @@ export function generearces() {
             case 0:
               accion.ToastSuccess(response.mensaje, 8000);
               accion.BotonSuccess('generacion_ces');
+              descargarArchivo("./assets/php/CES/listas De Marcacion/"+response.lista);
               spinner(false);
               break;
-            default:
-              accion.ToastError(`Error: ${response.mensaje}`, 40000);
-              console.log(response);
-              accion.BotonError('generacion_ces');
-              spinner(false);
+              default:
+                accion.ToastError(`Error: ${response.mensaje}`, 40000);
+                console.log(response);
+                accion.BotonError('generacion_ces');
+                spinner(false);
           }
         },
       });
@@ -93,10 +94,11 @@ export function movtosl() {
               case 1:
                 accion.ToastSuccess(response.mensaje, 8000);
                 accion.BotonSuccess('btn_generar_L');
+                console.log(response.mensaje);
                 spinner(false);
                 break;
               default:
-                accion.ToastError(`Error: ${response}`, 10000);
+                accion.ToastError(`Error: ${response.mensaje}`, 10000);
                 accion.BotonError('btn_generar_L');
                 spinner(false);
             }
@@ -118,74 +120,21 @@ export function movtosl() {
   }
   generarmovtosl();
 }
-
-export function copymovtos() {
-  function spinner(show) {
-    if (show) {
-      $("#cargando3-ces").show();
-      $("#img-movtos-ci").hide();
-    } else {
-      $("#cargando3-ces").hide();
-      $("#img-movtos-ci").show();
-    }
-  }
-  // console.log("Ward");
-  // return;
-
-  // $("#cargando3-ces").show();
-  // $("#img-movtos-ci").hide();
-
-  function controlinformes() {
-    spinner(true);
-    
-    // console.log('Control de informes: ', campain);
-
-    let parametros = {
-      opc: "copiarmovtosViMo",
-      fecha: accion.value("fecha_ces_cierre"),
-      campain: accion.value("campain_ces"),
-    };
-    //  console.log(parametros);
-
-    let verficarcampos = Object.values(parametros).every(
-      (value) => value != null && value !== ""
-    );
-      if (verficarcampos) {
-        $.post(
-          "./assets/php/CES/funciones_ces.php",
-          parametros,
-          function (response) {
-            switch (response.estado) {
-              case 1:
-                accion.ToastSuccess(response.mensaje, 8000);
-                accion.BotonSuccess('btn_copiar_movtos_ci');
-                spinner(false);
-                break;
-              default:
-                accion.ToastError(`Error: ${response}`, 10000);
-                accion.BotonError('btn_copiar_movtos_ci');
-                spinner(false);
-            }
-          }
-        )
-          .fail(function (jqXHR, textStatus, errorThrown) {
-            accion.ToastError(
-              `Falló la petición: ${jqXHR.status} ${jqXHR.statusText}`,
-              10000
-            );
-            accion.BotonError('btn_copiar_movtos_ci');
-            spinner(false);
-          })
-          .always(function () {
-            spinner(false);
-          });
-      } else {
-        accion.ToastInfo("Rellene todos los campos");
-        spinner(false);
-      }
-  }
-  controlinformes();
+/**
+ * Descarga un archivo en el navegador.
+ * El argumento debe ser la ruta de un archivo hasta el final con su extensión.
+ * @param {string} archivo La ruta relativa o absoluta seguida de el nombre del archivo con extensión.
+ */
+function descargarArchivo(archivo) {
+  var link = document.createElement("a");
+  link.href = archivo;
+  link.download = ''; 
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  // delete link;
 }
+
 
 export function respaldardirectorio() {
   function spinner(show) {
@@ -245,6 +194,86 @@ export function respaldardirectorio() {
               default:
                 accion.ToastError(`Error: ${response.mensaje}`, 10000);
                 accion.BotonError('btn_copy_movtosdir');
+                spinner(false);
+            }
+          }
+        )
+          .fail(function (jqXHR, textStatus, errorThrown) {
+            accion.ToastError(
+              `Falló la petición: ${jqXHR.status} ${jqXHR.statusText}`,
+              10000
+            );
+          })
+          .always(function () {
+            spinner(false);
+          });
+      } else {
+        accion.ToastInfo("Rellene todos los campos");
+        spinner(false);
+      }
+    }
+  }
+
+  // 🔥mos a la function cargar campaña para asegurarnos que se ejecute correctamente todo 😉
+  cargacampaña(accion.value("campain_ces"));
+}
+
+export function respaldargeneracion() {
+  function spinner(show) {
+    if (show) {
+      $("#cargando4-ces").show();
+      $("#img-generacion").hide();
+    } else {
+      $("#cargando4-ces").hide();
+      $("#img-generacion").show();
+    }
+  }
+  function cargacampaña(campain) {
+    spinner(true);
+
+    if (
+      [
+        "OPERACIONARGENTINA",
+        "PRESTAMOALINEADO",
+        "CLUB_VIAL",
+        "CLUB_MOTOS",
+        "CLUB_SALUD",
+        "LIGUEDECREDITO",
+        "EVALUACIONCANALESALTERNOS",
+      ].includes(campain)
+    ) {
+      accion.ToastWarning(
+        "Esta campaña aun no esta disponible en este apartado",
+        8000
+      );
+      spinner(false);
+    } else {
+      let parametros = {
+        opc: "respaldageneracion",
+        fecha: accion.value("fecha_ces_cierre"),
+        campain: accion.value("campain_ces"),
+      };
+
+      // nos aseguramos de que todo los campos esten llenos correctamente
+      let verficarcampos = Object.values(parametros).every(
+        (value) => value != null && value !== ""
+      );
+      if (verficarcampos) {
+        $.post(
+          "./assets/php/CES/funciones_ces.php",
+          parametros,
+          function (response) {
+            // var response = JSON.parse(response);
+            // console.log(response[response.mensaje]);
+            switch (response.estado) {
+              case 1:
+                accion.ToastSuccess(response.mensaje, 8000);
+                accion.BotonSuccess('btn_copiar_gen_ces');
+                spinner(false);
+                break;
+              default:
+                accion.ToastError(`Error: ${response.mensaje}`, 10000);
+                accion.BotonError('btn_copiar_gen_ces');
                 spinner(false);
             }
           }

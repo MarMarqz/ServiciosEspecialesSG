@@ -1,6 +1,7 @@
 import * as lym from "./ActulizacionLyM/modulo_lym.js"; 
 import * as funciones_ces from "./CES/modulo_ces.js";   
 import * as coppelpay from "./CoppelPay/modulo_coppelpay.js"; 
+import * as campanaunica from "./CampanaUnica/modulo_campanaunica.js"; 
 import * as referencias from "./ReferenciasIncompletas/modulo_referencias.js"; 
 import * as datoserroneos from "./DatosErroneos/modulo_datoserroneos.js";
 import * as ConOn from "./ConfirmacionOn/modulo_conon.js"; 
@@ -18,6 +19,36 @@ color:#FFE86F;
 font-family:lucida sans;
 padding:0.5rem;`
 );
+
+Swal.fire({
+  customClass: "swal_width",
+  title: "Informacion Que Cura",
+  html: `
+  <div class="container">
+  <p>Alto ahí buen hombre:</p>
+  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+<path fill="#2196f3" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#fff" d="M22 22h4v11h-4V22zM26.5 16.5c0 1.379-1.121 2.5-2.5 2.5s-2.5-1.121-2.5-2.5S22.621 14 24 14 26.5 15.121 26.5 16.5z"></path>
+</svg>
+  <p>Este todavia es un sistema en continuo cambio, aun es un sistema en pañales<br>
+  Puedes hacer algunos cierres, pero ten encuenta eso, es un sistema que aun le faltan muchas cosas
+  </p>
+  <p>puedes hacer los cierres sol credito argentina, las del cel(estan en prueba),<br>
+  por el momento no puedes hacer el cierre de lym debido a una migracion que se tiene</p>
+  <p>Buenas noches o buen dia 😁</p>
+  </div>
+  `,
+  showCancelButton: false,
+  showConfirmButton: false,
+  showCloseButton: true,
+  allowOutsideClick: false,
+  heightAuto: false,
+  showClass: {
+    popup: "animate__animated animate__fadeInDown",
+  },
+  hideClass: {
+    popup: "animate__animated animate__fadeOutUp",
+  },
+});
 
 
 // funcion para hacer scroll desde el boton de la flechita para arriba pariente
@@ -74,30 +105,14 @@ toggleButton.addEventListener("click", function () {
     sol.style.display = "none";
     logo.style.display = "block";
     logo2.style.display = "none";
-    console.log("soy privilegiado");
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 8000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      }
-    });
-    Toast.fire({
-      icon: "info",
-      title: "Atrevete a probar el oscuro, el modo oscuro",
-      text:"Pulsa la luna que esta detras de mi para activarlo"
-    });
+    console.log("Te uniste al camino de la luz");
   } else {
     body.classList.add("dark-mode");
     luna.style.display = "none";
     sol.style.display = "block";
     logo.style.display = "none";
     logo2.style.display = "block";
-    console.log("soy humilde carnal");
+    console.log('Bienvenido al lado oscuro');
   }
 });
 
@@ -117,22 +132,6 @@ if (prefersDark) {
   luna.style.display = "block";
     sol.style.display = "none";
     logo.style.display = "block";
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 8000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      }
-    });
-    Toast.fire({
-      icon: "info",
-      title: "Atrevete a probar el oscuro, el modo oscuro",
-      text:"Pulsa la luna que esta detras de mi para activarlo"
-    });
     //logo2.style.display = "none";
 }
 
@@ -404,19 +403,12 @@ accion.getid("btn_cierre_ces").addEventListener("click", function () {
     <div class="container">
     <div class="fecha" >
     <select class="campo_select_ces" id="campain_ces">
-    <option value="abonoargentina">Abono Argentina</option>
-    <option value="OPERACIONARGENTINA">Operación Argentina</option>
-    <option value="distribucionargentina">Distibución Argentina</option>
-    <option value="creditoautomotriz" >Credito Automotriz</option>
-    <option value="PRESTAMOALINEADO">Prestamo Alineado</option>
+    <option value="ABONOARGENTINA">Abono Argentina</option>
+    <option value="DISTRIBUCIONARGENTINA">Distibución Argentina</option>
+    <option value="CREDITOAUTOMOTRIZ" >Credito Automotriz</option>
     <option value="TRASPASOS">Traspasos</option>
-    <option value="CLUB_VIAL">Club Proteccion Vial</option>
-    <option value="CLUB_MOTOS">Club Proteccion Motos</option>
-    <option value="CLUB_SALUD">Club Proteccion Salud</option>
-    <option value="clubproteccionfamiliar" >Club Proteccion Familiar</option>
-    <option value="estadaocuentaafore" >Estado De Cuenta Afore</option>
-    <option value="LIGUEDECREDITO" >Ligue De Credito</option>
-    <option value="EVALUACIONCANALESALTERNOS">Evaluacion De Canalaes Alternos</option>
+    <option value="CLUBPROTECCIONFAMILIAR" >Club Proteccion Familiar</option>
+    <option value="ESTADOCUENTAAFORE" >Estado De Cuenta Afore</option>
     </select>
     <input class="campo_fecha" id="fecha_ces_cierre" type="date">
     </div>
@@ -442,29 +434,18 @@ accion.getid("btn_cierre_ces").addEventListener("click", function () {
       <g id='File' transform='translate(-96.000000, -336.000000)'><g id='copy_2_fill' transform='translate(96.000000, 336.000000)'>
       <path d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z' id='MingCute' fill-rule='nonzero'></path>
       <path d='M9,2 C7.89543,2 7,2.89543 7,4 L7,6 L9,6 L9,4 L20,4 L20,15 L18,15 L18,17 L20,17 C21.1046,17 22,16.1046 22,15 L22,4 C22,2.89543 21.1046,2 20,2 L9,2 Z M4,7 C2.89543,7 2,7.89543 2,9 L2,20 C2,21.1046 2.89543,22 4,22 L15,22 C16.1046,22 17,21.1046 17,20 L17,9 C17,7.89543 16.1046,7 15,7 L4,7 Z' id='形状' fill='currentcolor'></path></g></g></g></svg>
-      <br><p class="texto_generico">Copiar Directorio y Movimientos</p></button><br>
-
-   <button class="btn-ces" id="btn_copiar_movtos_ci">
-    <svg id="img-movtos-ci" width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
-      <g id='页面-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
-      <g id='Arrow' transform='translate(-912.000000, 0.000000)' fill-rule='nonzero'>
-      <g id='transfer_line' transform='translate(912.000000, 0.000000)'>
-      <path d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z' id='MingCute' fill-rule='nonzero'></path>
-      <path d='M20,14 C20.5523,14 21,14.4477 21,15 C21,15.51285 20.613973,15.9355092 20.1166239,15.9932725 L20,16 L6.41421,16 L8.70711,18.2929 C9.09763,18.6834 9.09763,19.3166 8.70711,19.7071 C8.34662077,20.0675615 7.77939355,20.0952893 7.38709848,19.7902834 L7.29289,19.7071 L3.4636,15.8778 C2.7983584,15.212616 3.2240608,14.0940048 4.12621381,14.0055802 L4.24142,14 L20,14 Z M15.2929,4.29289 C15.6533615,3.93241 16.2206207,3.90468077 16.6128973,4.20970231 L16.7071,4.29289 L20.5364,8.12218 C21.20168,8.7874312 20.7759699,9.90599901 19.8738074,9.99442003 L19.7586,10 L4,10 C3.44772,10 3,9.55228 3,9 C3,8.48716857 3.38604429,8.06449347 3.88337975,8.0067278 L4,8 L17.5858,8 L15.2929,5.70711 C14.9024,5.31658 14.9024,4.68342 15.2929,4.29289 Z' id='形状' fill='currentcolor'></path></g></g></g>
-      </svg><br>
-      <span class="loader" id="cargando3-ces"></span>
-      <p class="texto_generico"> Movtos Control de Informes</p></button>
-      
+      <br><p class="texto_generico">Copiar Directorio y Movimientos</p></button>
 
     <button class="btn-ces" id="btn_copiar_gen_ces">
-    <svg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+    <svg id='img-generacion' width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
       <g id='Icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
       <g id='System' transform='translate(-480.000000, -384.000000)' fill-rule='nonzero'>
       <g id='refresh_3_line' transform='translate(480.000000, 384.000000)'>
     <path d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5935,23.2578 L12.5819,23.2595 L12.5109,23.295 L12.4919,23.2987 L12.4767,23.295 L12.4057,23.2595 C12.3958,23.2564 12.387,23.259 12.3821,23.2649 L12.378,23.2758 L12.3609,23.7031 L12.3659,23.7235 L12.3769,23.7357 L12.4805,23.8097 L12.4953,23.8136 L12.5071,23.8097 L12.6107,23.7357 L12.6233,23.7197 L12.6267,23.7031 L12.6096,23.2758 C12.6076,23.2657 12.601,23.2593 12.5935,23.2578 Z M12.8584,23.1453 L12.8445,23.1473 L12.6598,23.2397 L12.6499,23.2499 L12.6472,23.2611 L12.6651,23.6906 L12.6699,23.7034 L12.6784,23.7105 L12.8793,23.8032 C12.8914,23.8069 12.9022,23.803 12.9078,23.7952 L12.9118,23.7812 L12.8777,23.1665 C12.8753,23.1546 12.8674,23.147 12.8584,23.1453 Z M12.143,23.1473 C12.1332,23.1424 12.1222,23.1453 12.1156,23.1526 L12.1099,23.1665 L12.0758,23.7812 C12.0751,23.7927 12.0828,23.8019 12.0926,23.8046 L12.1083,23.8032 L12.3092,23.7105 L12.3186,23.7024 L12.3225,23.6906 L12.3404,23.2611 L12.3372,23.2485 L12.3278,23.2397 L12.143,23.1473 Z' id='MingCute'></path>
     <path d='M20,9.00002 C20.5523,9.00002 21,9.44774 21,10 L21,11 C21,15.4183 17.4183,19 13,19 L9.41424,19 L10.2071,19.7929 C10.5976,20.1834 10.5976,20.8166 10.2071,21.2071 C9.81658,21.5976 9.18342,21.5976 8.79289,21.2071 L6.29719,18.7114 C6.146015,18.5620667 6.04220806,18.3648167 6.01031199,18.1443606 L6,17.9906 C6.0023,17.7477 6.09114,17.5255 6.23718,17.3534 L6.29289,17.2929 L6.29289,17.2929 L8.79289,14.7929 C9.18342,14.4024 9.81658,14.4024 10.2071,14.7929 C10.5976,15.1834 10.5976,15.8166 10.2071,16.2071 L9.41419,17 L13,17 C16.3137,17 19,14.3137 19,11 L19,10 C19,9.44774 19.4477,9.00002 20,9.00002 Z M15.2071,2.79289 L17.7071,5.29289 C18.0976,5.68342 18.0976,6.31658 17.7071,6.70711 L15.2071,9.20711 C14.8166,9.59763 14.1834,9.59763 13.7929,9.20711 C13.4024,8.81658 13.4024,8.18342 13.7929,7.79289 L14.5858,7.00002 L11,7.00002 C7.68629,7.00002 5,9.68632 5,13 L5,14 C5,14.5523 4.55229,15 4,15 C3.44772,15 3,14.5523 3,14 L3,13 C3,8.58175 6.58172,5.00003 11,5.00003 L14.5858,5.00003 L13.7929,4.20711 C13.4024,3.81658 13.4024,3.18342 13.7929,2.79289 C14.1834,2.40237 14.8166,2.40237 15.2071,2.79289 Z' id='形状' fill='currentcolor'></path></g></g></g></svg><br>
+    <span class="loader" id="cargando4-ces"></span>
     <p class="texto_generico">Copiar Generacion</p></button>
-    <!--<span class="loader" id="cargando4-ces"></span>-->
+    
     <br>
     
    </div>
@@ -485,7 +466,7 @@ accion.getid("btn_cierre_ces").addEventListener("click", function () {
   setTimeout(function () {
     $("#cargando1-ces").hide();
     $("#cargando2-ces").hide()
-    $("#cargando3-ces").hide();
+    $("#cargando4-ces").hide();
 
     document.getElementById("btn_generar_L").addEventListener("click", function(){
       funciones_ces.movtosl();
@@ -494,12 +475,11 @@ accion.getid("btn_cierre_ces").addEventListener("click", function () {
     document.getElementById("btn_copy_movtosdir").addEventListener("click", function(){
       funciones_ces.respaldardirectorio();
     })
+    
+    document.getElementById("btn_copiar_gen_ces").addEventListener("click", function(){
+      funciones_ces.respaldargeneracion();
+    })
 
-    document
-      .getElementById("btn_copiar_movtos_ci")
-      .addEventListener("click", function () {
-        funciones_ces.copymovtos(); //exportamos la funcion del archivo funciones.js
-      });
   }, 1000);
 });
 /******* MEDALLIA *******/
@@ -1222,7 +1202,7 @@ accion.getid("cierre_argentina").addEventListener("click", function () {
           <path d='M9,2 C7.89543,2 7,2.89543 7,4 L7,6 L9,6 L9,4 L20,4 L20,15 L18,15 L18,17 L20,17 C21.1046,17 22,16.1046 22,15                                                         L22,4 C22,2.89543 21.1046,2 20,2 L9,2 Z M4,7 C2.89543,7 2,7.89543 2,9 L2,20 C2,21.1046 2.89543,22 4,22                                                         L15,22 C16.1046,22 17,21.1046 17,20 L17,9 C17,7.89543 16.1046,7 15,7 L4,7 Z' id='形状' fill='currentcolor'></path></g></g></g></svg><br>
           <span class="loader" id="cargando1-solargentina"></span>
           <p class="texto_arg_movtos"> Copiar Movimientos</p></button>
-
+      <!--
      <button class="btn-argentina" id="btn_generar_movtos_arg">
      <svg id='img_movtrab_arg' width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
         <g id='Icon' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
@@ -1256,6 +1236,7 @@ accion.getid("cierre_argentina").addEventListener("click", function () {
       </svg>
       <span class="loader" id="cargando2-solargentina"></span>
      <br><p class="texto_generico"> Generar Movimientos Trab</p></button><br>
+     -->
 
      <button class="btn-argentina" id="btn_copia_direct_arg">
      <svg id='img_dir_arg' width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
@@ -1335,9 +1316,9 @@ accion.getid("cierre_argentina").addEventListener("click", function () {
       solargentina.respaldardirectorio();
     })
 
-    document.getElementById("btn_generar_movtos_arg").addEventListener("click", function(){
-      solargentina.generarmovtostrab();
-    })
+    // document.getElementById("btn_generar_movtos_arg").addEventListener("click", function(){
+    //   solargentina.generarmovtostrab();
+    // })
 
     document.getElementById("btn_cobertura_arg").addEventListener("click", function () {
       solargentina.generarcobertura(); //exportamos la funcion del archivo funciones.js
@@ -1658,8 +1639,75 @@ accion.getid("cierre_suparg").addEventListener("click", function () {
     // Retrasar la detonacion en 1 segundo (1000 milisegundos) para que pueda ser creada en el DOM
     //llamamos las funciones desde el archivo functions.js para detonarlas🤣 aqui
     accion.getid(cierre_suparg).addEventListener("click", function () {
-      funciones.copiarMovtosArgentina();
+      // funciones.copiarMovtosArgentina();
     });
+  }, 1000);
+});
+
+/************************* CIERRE CAMPAÑAS UNICAS  ****************************/ 
+
+/*  CIERRE  */
+accion.getid("btn_campanaunica").addEventListener("click", function () {
+  console.log(
+    "%c Cierre CES",
+    `color:#fffff;
+  font-family:lucida sans;
+  padding:0.5rem;
+  background:#e20808;
+  `
+  );
+  Swal.fire({
+    customClass: "swal_width",
+    title: "Cierre Campañas Unicas",
+    html: `
+    <div class="container">
+    <div class="fecha" >
+    <p>Cierre solo para campañas que tienen control de informes</p>
+    <select class="campo_select_ces" id="campain_campanaunica">
+    <option value="OPERACIONARGENTINA">Operación Argentina</option>
+    <option value="PRESTAMOALINEADO">Prestamo Alineado</option>
+    <option value="CLUB_VIAL">Club Proteccion Vial</option>
+    <option value="CLUB_MOTOS">Club Proteccion Motos</option>
+    <option value="CLUB_SALUD">Club Proteccion Salud</option>
+    <option value="EVALUACIONCANALESALTERNOS">Evaluacion De Canalaes Alternos</option>
+    </select>
+    <input class="campo_fecha" id="fecha_campanaunica" type="date">
+    </div>
+
+   <div class="btns_CES">
+   <button class="btn-ces" id="btn_copiar_movtos_ci">
+    <svg id="img-movtos-ci" width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+      <g id='页面-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+      <g id='Arrow' transform='translate(-912.000000, 0.000000)' fill-rule='nonzero'>
+      <g id='transfer_line' transform='translate(912.000000, 0.000000)'>
+      <path d='M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z' id='MingCute' fill-rule='nonzero'></path>
+      <path d='M20,14 C20.5523,14 21,14.4477 21,15 C21,15.51285 20.613973,15.9355092 20.1166239,15.9932725 L20,16 L6.41421,16 L8.70711,18.2929 C9.09763,18.6834 9.09763,19.3166 8.70711,19.7071 C8.34662077,20.0675615 7.77939355,20.0952893 7.38709848,19.7902834 L7.29289,19.7071 L3.4636,15.8778 C2.7983584,15.212616 3.2240608,14.0940048 4.12621381,14.0055802 L4.24142,14 L20,14 Z M15.2929,4.29289 C15.6533615,3.93241 16.2206207,3.90468077 16.6128973,4.20970231 L16.7071,4.29289 L20.5364,8.12218 C21.20168,8.7874312 20.7759699,9.90599901 19.8738074,9.99442003 L19.7586,10 L4,10 C3.44772,10 3,9.55228 3,9 C3,8.48716857 3.38604429,8.06449347 3.88337975,8.0067278 L4,8 L17.5858,8 L15.2929,5.70711 C14.9024,5.31658 14.9024,4.68342 15.2929,4.29289 Z' id='形状' fill='currentcolor'></path></g></g></g>
+      </svg><br>
+      <span class="loader" id="cargando_ci"></span>
+      <p class="texto_generico"> Movtos Control de Informes</p></button>
+   </div>
+    </div>
+    `,
+    showCancelButton: false,
+    showConfirmButton: false,
+    showCloseButton: true,
+    allowOutsideClick: false,
+    heightAuto: false,
+    showClass: {
+      popup: "animate__animated animate__fadeInDown",
+    },
+    hideClass: {
+      popup: "animate__animated animate__fadeOutUp",
+    },
+  });
+  setTimeout(function () {
+    $("#cargando_ci").hide();
+
+    document
+      .getElementById("btn_copiar_movtos_ci")
+      .addEventListener("click", function () {
+        campanaunica.copymovtos(); //exportamos la funcion del archivo funciones.js
+      });
   }, 1000);
 });
 
