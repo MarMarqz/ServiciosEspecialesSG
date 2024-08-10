@@ -30,11 +30,8 @@ Swal.fire({
 <path fill="#2196f3" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#fff" d="M22 22h4v11h-4V22zM26.5 16.5c0 1.379-1.121 2.5-2.5 2.5s-2.5-1.121-2.5-2.5S22.621 14 24 14 26.5 15.121 26.5 16.5z"></path>
 </svg>
   <p>Este todavia es un sistema en continuo cambio, aun es un sistema en pañales<br>
-  Puedes hacer algunos cierres, pero ten encuenta eso, es un sistema que aun le faltan muchas cosas
+  SOLO FUNCIONA LA GENERACION DEL CES... Y YA!!
   </p>
-  <p>puedes hacer los cierres sol credito argentina, las del cel(estan en prueba),<br>
-  por el momento no puedes hacer el cierre de lym debido a una migracion que se tiene</p>
-  <p>Buenas noches o buen dia 😁</p>
   </div>
   `,
   showCancelButton: false,

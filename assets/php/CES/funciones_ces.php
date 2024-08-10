@@ -44,8 +44,8 @@ switch ($opc)
 function generacion_ces($archivo, )
 {
     
-    $conn36 = conect_36();
-    $sftp36 = sftp_36();
+    $conn126 = conect_126_ces();
+    $sftp126 = sftp_126_ces();
 
     $rutaProyecto = __DIR__ . '/BasesCES/';
     $rutaListas = __DIR__ .'/Listas De Marcacion/';
@@ -54,15 +54,22 @@ function generacion_ces($archivo, )
     $posicionUltimoGuionBajo = strrpos(basename($archivoDestino), "_");
     #Extrae la parte del nombre del archivo antes del último guion bajo
     $nombrecampana = substr(basename($archivoDestino), 0, $posicionUltimoGuionBajo);
+    $fechaActual = time();
+    $aniomedia = date('Ymd', $fechaActual);
     #$endJSON = array('estado' => 0, 'mensaje' => $nombrecampana);
 #para cargar el directorio de traspasos -> fun_cargar_base2
     $campanaces = array(
-        'abonoargentina',
         'club_de_proteccion_familiar',
-        'CREDITOAUTOMOTRIZ',
-        'distribucionargentina',
-        'estado_de_cuenta_afore',
-        'traspasos'
+        'club_de_proteccion_salud',
+        'club_de_proteccion_vial',
+        'club_de_proteccion_motos',
+        // 'estado_de_cuenta_afore',
+        'encuestarelacionalsyg',
+        'encuestarelacionalcyd',
+        'encuesta_relacional_ropa',
+        'encuesta_relacional_muebles',
+        'encuestarelacionalentregasropaymuebles',
+        'ABONOS_COPPEL_MX',
     );
 
     if (in_array($nombrecampana, $campanaces))
@@ -70,28 +77,39 @@ function generacion_ces($archivo, )
 
         #Le ponemos los nombres a como los toma la funcion de generacion
         $campanaces = array(
-            'abonoargentina' => 'base_abonoargentina.csv',
             'club_de_proteccion_familiar' => 'base_clubProteccionFamiliar.csv',
-            'CREDITOAUTOMOTRIZ' => 'base_creditoautomotriz.csv',
-            'distribucionargentina' => 'base_distribucionargentina.csv',
-            'estado_de_cuenta_afore' => 'base_clubProteccionFamiliar.csv',
-            'traspasos' => 'base_traspasos.csv'
+            'club_de_proteccion_salud' => 'base_clubProteccionSalud.csv',
+            'club_de_proteccion_vial' => 'base_clubProteccionVial.csv',
+            'club_de_proteccion_motos' => 'base_clubProteccionMotos.csv',
+            // 'estado_de_cuenta_afore' => 'base_estadoaAfore.csv',
+            'encuestarelacionalsyg' => 'base_encuestaRelacionalSyG.csv',
+            'encuestarelacionalcyd' => 'base_encuestaRelacionalCyD.csv',
+            'encuesta_relacional_ropa' => 'base_encuestaRelacionalRopa.csv',
+            'encuesta_relacional_muebles' => 'base_encuestaRelacionalMuebles.csv',
+            'encuestarelacionalentregasropaymuebles' => 'base_encuestaRelacionalEntrega.csv',
+            'ABONOS_COPPEL_MX' => 'base_abonosCoppelMX.csv',
         );
 
         $nombrebase = $campanaces[$nombrecampana] ?? null;
-
+        # si no existe el directorio lo crea
         if (!is_dir($rutaProyecto))
         {
             mkdir($rutaProyecto, 0777, true);
         }
+        # aqui tambien 
+        if (!is_dir($rutaListas))
+        {
+            mkdir($rutaListas, 0777, true);
+        }
 
+        # pasamos el archivo a la ruta del proyecto
         if (!move_uploaded_file($_FILES[$archivo]['tmp_name'], $archivoDestino))
         {
             $endJSON = array('estado' => 1, 'mensaje' => 'No se pudo pasar el archivo a la carpeta del proyecto');
             return;
         }
 
-        $resFile = fopen("ssh2.sftp://$sftp36/tmp/" . $nombrebase, 'w');
+        $resFile = fopen("ssh2.sftp://$sftp126/home/ccventas/CES/tmp/" . $nombrebase, 'w');
         if (!$resFile)
         {
             $endJSON = array('estado' => 1, 'mensaje' => 'Error al abrir el archivo remoto.');
@@ -108,55 +126,72 @@ function generacion_ces($archivo, )
         fwrite($resFile, $data_to_send);
         fclose($resFile);
 
-        $rutaArchivoSFTP = "/tmp/" . $nombrebase;
-        if (!ssh2_sftp_chmod($sftp36, $rutaArchivoSFTP, 0777))
+        $rutaArchivoSFTP = "/home/ccventas/CES/tmp/listas/" . $nombrebase;
+        if (!ssh2_sftp_chmod($sftp126, $rutaArchivoSFTP, 4095))
         {
             $endJSON = array('estado' => 1, 'mensaje' => 'Error al cambiar los permisos del archivo en el servidor SFTP.');
         }
 
         # Los parametros de fecha son inecesarion pero las funciones lo reciben como parametro igual ni la usan
         $funciongeneracion = array(
-            'abonoargentina' => 'SELECT estado, mensaje FROM generacion_abonoargentina(current_date)',
-            'club_de_proteccion_familiar' => 'SELECT estado, mensaje FROM fun_generacion_clubproteccionfamiliar_genesys(current_date)',
-            'CREDITOAUTOMOTRIZ' => '',
-            'distribucionargentina' => 'SELECT estado, mensaje FROM fun_distribucionargentina_generacion(current_date)',
-            'estado_de_cuenta_afore' => 'SELECT estado, mensaje FROM fun_generacion_estadocuentaafore(current_date)',
-            'traspasos' => 'SELECT estado, mensaje FROM fun_generacion_traspasos()'
+            'club_de_proteccion_familiar' => "SELECT * FROM generalista_cloud('familiar','".$nombrebase."')",
+            'club_de_proteccion_salud' => "SELECT * FROM generalista_cloud('salud','".$nombrebase."')",
+            'club_de_proteccion_motos' => "SELECT * FROM generalista_cloud('motos','".$nombrebase."')",
+            'club_de_proteccion_vial' => "SELECT * FROM generalista_cloud('vial','".$nombrebase."')",
+            'estado_de_cuenta_afore' => "SELECT * FROM generalista_cloud('afore','".$nombrebase."')",
+            'encuestarelacionalsyg' => "SELECT * FROM generalista_cloud('syg','".$nombrebase."')",
+            'encuestarelacionalcyd' => "SELECT * FROM generalista_cloud('cyd','".$nombrebase."')",
+            'encuesta_relacional_ropa' => "SELECT * FROM generalista_cloud('ropa','".$nombrebase."')",
+            'encuesta_relacional_muebles' => "SELECT * FROM generalista_cloud('muebles','".$nombrebase."')",
+            'encuestarelacionalentregasropaymuebles' => "SELECT * FROM generalista_cloud('entrega','".$nombrebase."')",
+            'ABONOS_COPPEL_MX' => "SELECT * FROM generalista_cloud('abonos_coppel','".$nombrebase."')"
         );
 
         $funcion = $funciongeneracion[$nombrecampana] ?? false;
 
         if ($funcion)
         {
-            $query = $conn36->prepare($funcion);
+            $query = $conn126->prepare($funcion);
             if ($query->execute())
             {
-                $endJSON = ['estado' => 0, 'mensaje' => ''];
-                while ($rw = $query->fetch(PDO::FETCH_ASSOC))
-                {
-                    if ($funcion == $funciongeneracion['abonoargentina'])
-                    {
-                        $endJSON['mensaje'] = $rw['Resultados Generados'];
-                    }
-                    else
-                    {
-                        $endJSON['estado'] = $rw['estado'];
-                        $endJSON['mensaje'] = $rw['mensaje'];
-                    }
-                }
+                $endJSON = ['estado' => 0, 'mensaje' => 'A huevo ya quedó'];
+                // while ($rw = $query->fetch(PDO::FETCH_ASSOC))
+                // {
+                //     if ($funcion == $funciongeneracion['abonoargentina'])
+                //     {
+                //         $endJSON['mensaje'] = $rw['Registros Generados'];
+                //     }
+                //     else
+                //     {
+                //         $endJSON['estado'] = $rw['estado'];
+                //         $endJSON['mensaje'] = $rw['mensaje'];
+                //     }
+                // }
                 header('Content-Type: application/json');
-                echo json_encode($endJSON);
-                return;
+                // echo json_encode($endJSON);
+                // return;
             }
         }
 
         $listasces = array(
-            'abonoargentina' => "ssh2.sftp://$sftp36/tmp/Servicios Especiales/CL_CUE_ABONOARGENTINA2021_20210721.csv",
-            'club_de_proteccion_familiar' => "ssh2.sftp://$sftp36/tmp/CL_CUE_CLUBPROTECCIONFAMILIAR_20200706.csv",
-            'CREDITOAUTOMOTRIZ' => "ssh2.sftp://$sftp36/tmp/CL_CUE_CREDITOAUTOMOTRIZ.csv",
-            'distribucionargentina' => "ssh2.sftp://$sftp36/tmp/CL_CUE_DISTRIBUCIONARG_20200715.csv",
-            'estado_de_cuenta_afore' => "ssh2.sftp://$sftp36/tmp/CL_CUE_ESTADODECUENTACES_20191104.csv",
-            'traspasos' => "ssh2.sftp://$sftp36/tmp/CL_CUE_TRASPASOSAFORECOPPEL_20210426.csv"
+            // 'abonoargentina' => "ssh2.sftp://$sftp126/tmp/Servicios Especiales/CL_CUE_ABONOARGENTINA2021_20210721.csv",
+            
+            'club_de_proteccion_familiar' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_CLUB_FAMILIAR_$aniomedia.csv",
+            'club_de_proteccion_salud' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_CLUB_SALUD_$aniomedia.csv",
+            'club_de_proteccion_vial' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_CLUB_VIAL_$aniomedia.csv",
+            'club_de_proteccion_motos' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_CLUB_MOTOS_$aniomedia.csv",
+            'estado_de_cuenta_afore' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_ESTADO_CUENTA_AFORE_$aniomedia.csv",
+            'encuestarelacionalsyg' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_ENCUESTA_SYG_$aniomedia.csv",
+            'encuestarelacionalcyd' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_ENCUESTA_CYD_$aniomedia.csv",
+            'encuesta_relacional_ropa' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_ENCUESTA_ROPA_$aniomedia.csv",
+            'encuesta_relacional_muebles' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_ENCUESTA_MUEBLES_$aniomedia.csv",
+            'encuestarelacionalentregasropaymuebles' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_ENCUESTA_ENTREGA_$aniomedia.csv",
+            'ABONOS_COPPEL_MX' => "ssh2.sftp://$sftp126/home/ccventas/CES/tmp/listas/CES_CL_ABONOS_COPPEL_$aniomedia.csv",
+
+            // 'CREDITOAUTOMOTRIZ' => "ssh2.sftp://$sftp126/tmp/CL_CUE_CREDITOAUTOMOTRIZ.csv",
+            // 'distribucionargentina' => "ssh2.sftp://$sftp126/tmp/CL_CUE_DISTRIBUCIONARG_20200715.csv",
+            // 'estado_de_cuenta_afore' => "ssh2.sftp://$sftp126/tmp/CL_CUE_ESTADODECUENTACES_20191104.csv",
+            // 'traspasos' => "ssh2.sftp://$sftp126/tmp/CL_CUE_TRASPASOSAFORECOPPEL_20210426.csv"
         );
 
         $rutaArchivo = $listasces[$nombrecampana] ?? false;
@@ -165,8 +200,11 @@ function generacion_ces($archivo, )
 
         if ($rutaArchivo)
         {
-            copy($rutaArchivo,"../CES/Listas De Marcacion/$lista");
-            $endJSON['lista'] = $lista ?? "Yo abia ... si ves esto. Favor de avisar a Brandon Rodríguez";
+            # se tenia la ruta antes asi ../CES/Listas De Marcacion
+            copy ($rutaArchivo,"../../../Listas de Marcacion/$lista");
+            // echo ($rutaArchivo,"../../../Listas de Marcacion/$lista");
+            
+            $endJSON['lista'] = $lista ?? "Yo habia ... si ves esto. Favor de avisar a Brandon Rodríguez";
         }
 
 
@@ -372,116 +410,6 @@ function direcmovtos($fecha, $campain)
     header('Content-Type: application/json');
     echo json_encode(array('estado' => $estado, 'mensaje' => $mensaje));
 }
-
-// function copiarmovtosViMo($campain, $fecha)
-// {
-
-//     $mensaje = '';
-//     $estado = 0;
-
-//     $conn163 = conect_163();
-//     $conn105 = conect_105();
-//     $sftp163 = sftp_163();
-//     $sftp105 = sftp_105();
-
-//     $nombrecampana = array(
-//         'CLUB_VIAL' => 'CP_CUE_CLUB_VIAL_20230814',
-//         'CLUB_MOTOS' => 'CP_CUE_CLUB_MOTOS_20230814',
-//         'CLUB_SALUD' => 'CP_CUE_CLUB_SALUD_20230814',
-//         'OPERACIONARGENTINA' => 'CP_CUE_OPERACIONARGENTINA_20231009',
-//         'PRESTAMOALINEADO' => 'CP_CUE_PRESTAMOALINEADO_20240105',
-//         'EVALUACIONCANALESALTERNOS' => 'CP_CUE_EVALUACIONCANALESALTERNOS_20220630'
-//     );
-
-//     $campana = $nombrecampana[$campain] ?? null;
-
-//     $query = $conn163->prepare("SELECT COUNT(*) FROM campanaunica_resultados where nomcampana = :campana AND fechamovto = :fecha");
-
-//     $query->bindParam(':fecha', $fecha);
-//     $query->bindParam(':campana', $campana);
-//     $query->execute();
-//     $result = $query->fetchColumn();
-
-//     if ($result > 0)
-//     {
-
-//         $query = $conn163->prepare("SELECT estado, mensaje FROM cierre_club_proteccion_controlinformes('$campain','$fecha')");
-//         $query->execute();
-
-//         $result = $query->fetchColumn();
-
-//         while ($rw = $query->fetch(PDO::FETCH_ASSOC))
-//         {
-//             $estado = $rw['estado'];
-//             $mensaje = $rw['mensaje'];
-//         }
-//         ;
-
-//         $endJSON = array('estado' => $estado, 'respuesta' => $mensaje);
-//         if ($estado != 0)
-//         {
-
-//             $endJSON = array('estado' => $estado, 'respuesta' => $mensaje);
-//             header('Content-Type: application/json');
-//             echo json_encode($endJSON);
-//             return;
-//         }
-//         else
-//         {
-//             if (!copy("ssh2.sftp://" . $sftp163 . "/tmp/" . $campain . "_CI.csv", "ssh2.sftp://" . $sftp105 . "/tmp/" . $campain . "_CI.csv"))
-//             {
-
-//                 $estado = 0;
-//                 $mensaje = 'No se pudo copiar Archivo';
-
-//                 $endJSON = array('estado' => $estado, 'respuesta' => $mensaje);
-//                 header('Content-Type: application/json');
-//                 echo json_encode($endJSON);
-//                 return;
-//             }
-
-//             $permisos = ssh2_sftp_chmod($sftp105, "/tmp/" . $campain . "_CI.csv", 4095);
-//             if (!$permisos)
-//             {
-
-//                 $estado = 1;
-//                 $mensaje = 'No se pudo dar permisos al Arcvhivo reportar a Brandon Rodriguez';
-
-//                 $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
-//                 header('Content-Type: application/json');
-//                 echo json_encode($endJSON);
-//                 return;
-//             }
-
-//             $query2 = $conn105->prepare("SELECT estado, mensaje FROM cierre_club_proteccion_controlinformes('$campain','$fecha')");
-//             $query2->execute();
-
-//             while ($rw = $query2->fetch(PDO::FETCH_ASSOC))
-//             {
-//                 $estado = $rw['estado'];
-//                 $mensaje = $rw['mensaje'];
-//             }
-//             $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
-//             if ($estado != 0)
-//             {
-
-//                 // $endJSON = array('estado' => $estado, 'respuesta' => $respuesta);
-//                 header('Content-Type: application/json');
-//                 echo json_encode($endJSON);
-//                 return;
-//             }
-//         }
-//     }
-//     else
-//     {
-//         $estado = 0;
-//         $mensaje = 'No hay movimientos del dia en el servidor productivo';
-//         $endJSON = array('estado' => $estado, 'mensaje' => $mensaje);
-//         header('Content-Type: application/json');
-//         echo json_encode($endJSON);
-//         return;
-//     }
-// }
 
 function respaldageneracion($campain, $fecha)
 {

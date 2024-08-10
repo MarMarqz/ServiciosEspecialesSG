@@ -43,11 +43,12 @@ export function generearces() {
             case 0:
               accion.ToastSuccess(response.mensaje, 8000);
               accion.BotonSuccess('generacion_ces');
-              descargarArchivo("./assets/php/CES/listas De Marcacion/"+response.lista);
+              accion.descargarArchivo("./Listas De Marcacion/"+response.lista);
               spinner(false);
               break;
               default:
                 accion.ToastError(`Error: ${response.mensaje}`, 40000);
+                accion.ToastWarning(`Lo que pasa es que: ${response}`, 40000);
                 console.log(response);
                 accion.BotonError('generacion_ces');
                 spinner(false);
@@ -120,21 +121,6 @@ export function movtosl() {
   }
   generarmovtosl();
 }
-/**
- * Descarga un archivo en el navegador.
- * El argumento debe ser la ruta de un archivo hasta el final con su extensión.
- * @param {string} archivo La ruta relativa o absoluta seguida de el nombre del archivo con extensión.
- */
-function descargarArchivo(archivo) {
-  var link = document.createElement("a");
-  link.href = archivo;
-  link.download = ''; 
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  // delete link;
-}
-
 
 export function respaldardirectorio() {
   function spinner(show) {
